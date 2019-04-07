@@ -27,5 +27,5 @@ jobs:
       - run:
           name: Test output
           command: |
-            output="$(npx omg run --raw message -a name="Peter")"
+            output="$(npx omg run --raw message -a name="Peter" | jq -c .)"
             if [ "$output" != '{"message":"Hello Peter"}' ] ; then echo "$output"; exit 1; fi
