@@ -13,6 +13,10 @@ post '/message' do
   JSON.dump({"message": "Hello #{body['name']}"})
 end
 
+get '/health' do
+  body = 'OK'
+end
+
 # for all errors -> return a JSON error message
 error do
   content_type :json
