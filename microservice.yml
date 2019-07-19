@@ -9,6 +9,10 @@ info:
 lifecycle:
   startup:
     command: ["ruby", "/app/app.rb"]
+health:
+  http:
+    path: /health
+    port: 8080
 actions:
   message:
     http:
