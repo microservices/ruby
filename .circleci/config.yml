@@ -20,12 +20,12 @@ jobs:
 
       - run:
           name: Install OMG
-          command: npm i omg
+          command: npm i @microservices/cli
       - run:
           name: Building the OMG service
-          command: npx omg build
+          command: npx oms build
       - run:
           name: Test output
           command: |
-            output="$(npx omg run --raw message -a name="Peter" | jq -c .)"
+            output="$(npx oms run --raw message -a name="Peter" | jq -c .)"
             if [ "$output" != '{"message":"Hello Peter"}' ] ; then echo "$output"; exit 1; fi
